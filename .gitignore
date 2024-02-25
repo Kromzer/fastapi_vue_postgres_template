@@ -1,0 +1,4 @@
+.vscode
+back/.venv
+front/.node_modules
+front/.vscode

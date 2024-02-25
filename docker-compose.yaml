@@ -1,0 +1,42 @@
+version: "3.8"
+
+services:
+  db:
+    image: postgres:15.2
+    restart: always
+    environment:
+      - PGUSER=postgres
+      - POSTGRES_PASSWORD=Ultr4S3cur3dP4ssw0rd!
+      - PGDATA=/data/postgres
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready"]
+      interval: 1s
+      timeout: 5s
+      retries: 10
+    ports:
+      - "54320:5432"
+    volumes:
+      - "postgres:/data/postgres"
+  back:
+    build:
+      context: ./back
+      dockerfile: Dockerfile
+    depends_on:
+      db:
+        condition: service_healthy
+    command: bash -c "python main.py"
+    volumes:
+      - ./back:/back
+    ports:
+      - "8000:8000"
+  front:
+    build:
+      context: ./front
+      dockerfile: Dockerfile
+    command: bash -c "npm install && npm run build && http-server dist"
+    volumes:
+      - ./front:/front
+    ports:
+      - "8080:8080"
+volumes:
+  postgres:
