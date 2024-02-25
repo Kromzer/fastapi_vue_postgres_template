@@ -7,4 +7,6 @@ As I find myself using this stack pretty often, I figured it would make things e
 
 It works fine on Windows 8 with Docker Desktop, I haven't try on other environments.
 
+It is designed for development, there are things to change for production (hot reload & stuff).
+
 Feel free to give feedbacks if you use it, as I am just an amateur when it comes to Docker.

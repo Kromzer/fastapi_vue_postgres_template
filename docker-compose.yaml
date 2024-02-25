@@ -33,7 +33,7 @@ services:
     build:
       context: ./front
       dockerfile: Dockerfile
-    command: bash -c "npm install && npm run build && http-server dist"
+    command: bash -c "npm install && npm run dev"
     volumes:
       - ./front:/front
     ports:
