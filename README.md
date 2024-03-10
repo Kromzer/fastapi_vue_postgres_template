@@ -5,7 +5,7 @@ This is just a working template for an app using:
 
 As I find myself using this stack pretty often, I figured it would make things easier to have a template ready for whenever I need it.
 
-It works fine on Windows 8 with Docker Desktop, I haven't try on other environments.
+It works fine on Windows 10 with Docker Desktop, I haven't try on other environments.
 
 It is designed for development, there are things to change for production (hot reload & stuff).
 
